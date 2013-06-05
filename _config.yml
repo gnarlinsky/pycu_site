@@ -3,3 +3,4 @@ source: .
 destination: ./_site
 lsi: false
 pygments: true
+baseurl: /pycu_site
