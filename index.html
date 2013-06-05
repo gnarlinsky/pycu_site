@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+<div class="container">
+
+  <div class="hero-unit" style="text-align:center; background-color:#fff; margin-bottom:-10px">
+    <img alt="logo" src="img/py-cu-logo.png">
+    <p>Py-CU is Champaign-Urbana Python Users Group.</p>
+    <p>We are a bunch of people who want to get together to learn, teach, share and discuss<br/>
+    all things related to the Python programming language.  </p>
+    <br/>
+    <p><a class="btn btn-large btn-inverse" href="form_interest.html"><span class="btn-label">Tell us what you want to talk about.</span></a>
+    </p>
+
+</div>
+
+  <div class="row main-features">
+
+    <div class="span4">
+      <div class="well">
+        <h3>Next event</h3>
+        <p>
+        {% for post in site.posts limit:1 %}
+        <a href="{{ post.url }}"> {{post.date | date:"%B %d, %Y" }}: {{ post.title}} </a>
+        {{post.slug}}
+        {% endfor %}
+        </p>
+        <a class="btn btn-primary" href="events.html"><span class="btn-label">Past events</span></a>
+      </div>
+    </div>
+
+
+    <div class="span4">
+      <div class="well">
+        <h3>General Info</h3>
+        <p>We have two types of regular events: biweekly general meetings
+        (which include presentations and group discussions) and weekly hack
+        sessions (where we teach/learn/discuss anything related to technology).</p>
+        <a class="btn btn-info" href="about.html"><span class="btn-label">More</span></a>
+      </div>
+    </div>
+
+
+
+    <div class="span4">
+      <div class="well">
+        <h3>Contact Us</h3>
+        <p>
+    You can email our
+    <a href="mailto:py-cu@lists.py-cu.org">mailing list</a>.</p>
+    <p>
+    Or check out our
+    <a href="http://www.facebook.com/groups/115113665332255/">Facebook group</a>.<br>
+    </p>
+    Hit us up on
+    <a href="https://github.com/py-cu">Github</a> or
+    <a href="https://twitter.com/py_cu">Twitter</a>.
+    </p>
+      </div>
+     </div>
+
+    </div><!-- end main-features -->
+  </div><!-- end container -->
+
+
+<div id="footer" class="pull-right">
+    <a href="https://twitter.com/py_cu"
+      class="twitter-follow-button" data-show-count="false"
+      data-size="large">Follow @py_cu</a>
+    <script>!function(d,s,id){var
+      js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+</div>
