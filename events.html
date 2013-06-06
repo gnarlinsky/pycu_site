@@ -4,17 +4,20 @@ layout: default
 <div class="row-fluid">
 <div class="span3">
 
-
-
-
 <h4> Upcoming </h4>
 {% comment %} The next three (at most) events right now or later. {% endcomment %}
 <ul>
-    {% for post in site.posts limit:3 %}
-        {% if post.date >= site.time %}
-            <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.date | date:"%B %d, %Y" }}: {{ post.title}}</a> </li>
-        {% endif %}
-    {% endfor %}
+    {% assign i = 0 %}                                                     
+    {% assign num_to_show = 1 %}
+    {% for post in site.posts reversed %}                                  
+        {% if i < num_to_show %}                                                     
+            {% if post.date >= site.time %}                                
+                <li><a href="{{ site.baseurl }}{{ post.url }}"> {{post.date | date:"%B %d, %Y" }}: {{ post.title}} </a>
+                {{post.slug}}</li>
+                {% assign i = i | plus: 1 %}                               
+            {% endif %}                                                    
+        {% endif %}                                                        
+    {% endfor %} 
 </ul>
 
 {% comment %}At most 100 events before right now. {% endcomment %}
@@ -30,11 +33,18 @@ layout: default
 </div>
 
 <div class="span8">
-{% for post in site.posts limit:2 %}
-    <h1 class="shead">{{post.title}}</h1>
-    <p>{{ post.date | date:"%B %d, %Y" }}</p>
-    <p> {{ post.content }}</p>
-    <hr>
+{% assign i = 0 %}                                                     
+{% assign num_to_show = 1 %}
+{% for post in site.posts reversed %}
+    {% if i < num_to_show %}                                                     
+        {% if post.date >= site.time %}
+            <h1 class="shead">{{post.title}}</h1>
+            <p>{{ post.date | date:"%B %d, %Y" }}</p>
+            <p> {{ post.content }}</p>
+            <hr>
+            {% assign i = i | plus: 1 %}                               
+        {% endif %}                                                    
+    {% endif %}                                                    
 {% endfor %}
 </div>
 
